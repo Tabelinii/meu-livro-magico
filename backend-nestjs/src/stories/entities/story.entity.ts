@@ -33,32 +33,32 @@ export class Story {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({ unique: true })
+  @Column({ unique: true, length: 100 })
   slug: string;
 
-  @Column()
+  @Column({ length: 255 })
   title: string;
 
   @Column('text')
   description: string;
 
   @Column({
-    type: 'simple-enum',
-    enum: StoryCategory,
+    type: 'varchar',
+    length: 50,
   })
   category: StoryCategory;
 
   @Column({
-    type: 'simple-enum',
-    enum: StoryGender,
+    type: 'varchar',
+    length: 20,
     default: StoryGender.UNISSEX,
   })
   gender: StoryGender;
 
-  @Column()
+  @Column({ length: 50 })
   ageRange: string;
 
-  @Column({ nullable: true })
+  @Column({ nullable: true, length: 500 })
   coverImageUrl?: string;
 
   @Column('json')
@@ -74,7 +74,7 @@ export class Story {
   @Column({ default: false })
   isFeatured: boolean;
 
-  @Column({ default: 0 })
+  @Column({ default: 0, type: 'int' })
   usageCount: number;
 
   @CreateDateColumn()

@@ -10,7 +10,8 @@ import { StoriesModule } from './stories/stories.module';
 import { AiModule } from './ai/ai.module';
 import { PdfModule } from './pdf/pdf.module';
 import { ProcessingModule } from './processing/processing.module';
-import { DatabaseConfig } from './config/database.config';
+import { CommonModule } from './common/common.module';
+import { SupabaseConfig } from './config/supabase.config';
 
 @Module({
   imports: [
@@ -26,12 +27,13 @@ import { DatabaseConfig } from './config/database.config';
       serveRoot: '/api/files',
     }),
 
-    // Configuração do banco de dados
+    // Configuração do banco de dados (SQLite ou Supabase PostgreSQL)
     TypeOrmModule.forRootAsync({
-      useClass: DatabaseConfig,
+      useClass: SupabaseConfig,
     }),
 
     // Módulos da aplicação
+    CommonModule,
     AuthModule,
     UsersModule,
     BooksModule,

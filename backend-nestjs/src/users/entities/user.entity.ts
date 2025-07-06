@@ -14,20 +14,20 @@ export class User {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({ unique: true })
+  @Column({ unique: true, length: 50 })
   username: string;
 
-  @Column({ unique: true })
+  @Column({ unique: true, length: 255 })
   email: string;
 
-  @Column()
+  @Column({ length: 255 })
   @Exclude()
   password: string;
 
-  @Column({ nullable: true })
+  @Column({ nullable: true, length: 100 })
   firstName?: string;
 
-  @Column({ nullable: true })
+  @Column({ nullable: true, length: 100 })
   lastName?: string;
 
   @Column({ default: true })

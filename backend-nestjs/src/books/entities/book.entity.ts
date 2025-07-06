@@ -22,38 +22,38 @@ export class Book {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column()
+  @Column({ length: 255 })
   title: string;
 
-  @Column()
+  @Column({ length: 100 })
   childName: string;
 
-  @Column()
+  @Column({ length: 20 })
   childAge: string;
 
-  @Column({ nullable: true })
+  @Column({ nullable: true, length: 500 })
   childInterests?: string;
 
   @Column({
-    type: 'simple-enum',
-    enum: BookStatus,
+    type: 'varchar',
+    length: 20,
     default: BookStatus.DRAFT,
   })
   status: BookStatus;
 
-  @Column({ nullable: true })
+  @Column({ nullable: true, length: 500 })
   coverImageUrl?: string;
 
-  @Column({ nullable: true })
+  @Column({ nullable: true, length: 500 })
   pdfUrl?: string;
 
   @Column('text', { nullable: true })
   personalizedContent?: string;
 
-  @Column({ nullable: true })
+  @Column({ nullable: true, type: 'int' })
   generationProgress?: number;
 
-  @Column({ nullable: true })
+  @Column({ nullable: true, length: 1000 })
   errorMessage?: string;
 
   @CreateDateColumn()
