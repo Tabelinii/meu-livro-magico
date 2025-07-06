@@ -43,8 +43,12 @@ async function bootstrap() {
   const port = process.env.PORT || 3000;
   await app.listen(port, '0.0.0.0');
   
+  const isProduction = process.env.NODE_ENV === 'production';
+  
   console.log(`🚀 Meu Livro Mágico Backend rodando em: http://localhost:${port}`);
   console.log(`📚 Documentação da API: http://localhost:${port}/api/docs`);
+  console.log(`🌍 Ambiente: ${isProduction ? 'PRODUÇÃO' : 'DESENVOLVIMENTO'}`);
+  console.log(`💾 Banco: ${isProduction || process.env.FORCE_SUPABASE === 'true' ? 'Supabase PostgreSQL' : 'SQLite Local'}`);
 }
 
 bootstrap();

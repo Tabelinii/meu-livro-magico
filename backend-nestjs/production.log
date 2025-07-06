@@ -1,0 +1,85 @@
+
+> meu-livro-magico-backend@1.0.0 start:production
+> NODE_ENV=production node dist/main
+
+[32m[Nest] 59296  - [39m07/06/2025, 6:24:18 PM [32m    LOG[39m [38;5;3m[NestFactory] [39m[32mStarting Nest application...[39m
+[32m[Nest] 59296  - [39m07/06/2025, 6:24:18 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mTypeOrmModule dependencies initialized[39m[38;5;3m +17ms[39m
+[32m[Nest] 59296  - [39m07/06/2025, 6:24:18 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mPassportModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 59296  - [39m07/06/2025, 6:24:18 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mJwtModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 59296  - [39m07/06/2025, 6:24:18 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigHostModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 59296  - [39m07/06/2025, 6:24:18 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mServeStaticModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 59296  - [39m07/06/2025, 6:24:18 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 59296  - [39m07/06/2025, 6:24:18 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigModule dependencies initialized[39m[38;5;3m +1ms[39m
+[33m[Nest] 59296  - [39m07/06/2025, 6:24:18 PM [33m   WARN[39m [38;5;3m[AiService] [39m[33m⚠️ Replicate desabilitado temporariamente - focando no Supabase[39m
+⚠️ Ambiente sandbox detectado - usando SQLite
+🔌 Supabase indisponível: Usando SQLite local...
+💡 Para forçar Supabase: FORCE_SUPABASE=true ou USE_SUPABASE=true
+[32m[Nest] 59296  - [39m07/06/2025, 6:24:18 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mCommonModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 59296  - [39m07/06/2025, 6:24:18 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAiModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 59296  - [39m07/06/2025, 6:24:18 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mPdfModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 59296  - [39m07/06/2025, 6:24:18 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mJwtModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 59296  - [39m07/06/2025, 6:24:18 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mTypeOrmCoreModule dependencies initialized[39m[38;5;3m +28ms[39m
+[32m[Nest] 59296  - [39m07/06/2025, 6:24:18 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mTypeOrmModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 59296  - [39m07/06/2025, 6:24:18 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mTypeOrmModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 59296  - [39m07/06/2025, 6:24:18 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mTypeOrmModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 59296  - [39m07/06/2025, 6:24:18 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAppModule dependencies initialized[39m[38;5;3m +2ms[39m
+[32m[Nest] 59296  - [39m07/06/2025, 6:24:18 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAuthModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 59296  - [39m07/06/2025, 6:24:18 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mBooksModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 59296  - [39m07/06/2025, 6:24:18 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mUsersModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 59296  - [39m07/06/2025, 6:24:18 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mStoriesModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 59296  - [39m07/06/2025, 6:24:18 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mProcessingModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 59296  - [39m07/06/2025, 6:24:18 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAuthController {/api/api/auth}:[39m[38;5;3m +28ms[39m
+[32m[Nest] 59296  - [39m07/06/2025, 6:24:18 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/api/auth/login, POST} route[39m[38;5;3m +2ms[39m
+[32m[Nest] 59296  - [39m07/06/2025, 6:24:18 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/api/auth/register, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 59296  - [39m07/06/2025, 6:24:18 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/api/auth/profile, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 59296  - [39m07/06/2025, 6:24:18 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/api/auth/validate, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 59296  - [39m07/06/2025, 6:24:18 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mUsersController {/api/users}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 59296  - [39m07/06/2025, 6:24:18 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/users, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 59296  - [39m07/06/2025, 6:24:18 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/users, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 59296  - [39m07/06/2025, 6:24:18 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/users/:id, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 59296  - [39m07/06/2025, 6:24:18 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/users/:id, PATCH} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 59296  - [39m07/06/2025, 6:24:18 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/users/:id, DELETE} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 59296  - [39m07/06/2025, 6:24:18 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mBooksController {/api/api/books}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 59296  - [39m07/06/2025, 6:24:18 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/api/books, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 59296  - [39m07/06/2025, 6:24:18 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/api/books, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 59296  - [39m07/06/2025, 6:24:18 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/api/books/statistics, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 59296  - [39m07/06/2025, 6:24:18 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/api/books/:id, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 59296  - [39m07/06/2025, 6:24:18 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/api/books/:id/content, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 59296  - [39m07/06/2025, 6:24:18 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/api/books/:id, PATCH} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 59296  - [39m07/06/2025, 6:24:18 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/api/books/:id, DELETE} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 59296  - [39m07/06/2025, 6:24:18 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mStoriesController {/api/stories}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 59296  - [39m07/06/2025, 6:24:18 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/stories, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 59296  - [39m07/06/2025, 6:24:18 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/stories, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 59296  - [39m07/06/2025, 6:24:18 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/stories/featured, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 59296  - [39m07/06/2025, 6:24:18 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/stories/popular, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 59296  - [39m07/06/2025, 6:24:18 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/stories/by-category, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 59296  - [39m07/06/2025, 6:24:18 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/stories/by-gender, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 59296  - [39m07/06/2025, 6:24:18 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/stories/statistics, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 59296  - [39m07/06/2025, 6:24:18 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/stories/:id, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 59296  - [39m07/06/2025, 6:24:18 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/stories/slug/:slug, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 59296  - [39m07/06/2025, 6:24:18 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/stories/:id, PATCH} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 59296  - [39m07/06/2025, 6:24:18 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/stories/:id, DELETE} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 59296  - [39m07/06/2025, 6:24:18 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mProcessingController {/api/processing}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 59296  - [39m07/06/2025, 6:24:18 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/processing/books/:id/process, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 59296  - [39m07/06/2025, 6:24:18 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/processing/books/:id/status, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 59296  - [39m07/06/2025, 6:24:18 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/processing/books/:id/preview, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 59296  - [39m07/06/2025, 6:24:18 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/processing/books/:id/retry, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 59296  - [39m07/06/2025, 6:24:18 PM [32m    LOG[39m [38;5;3m[NestApplication] [39m[32mNest application successfully started[39m[38;5;3m +3ms[39m
+[31m[Nest] 59296  - [39m07/06/2025, 6:24:18 PM [31m  ERROR[39m [38;5;3m[NestApplication] [39m[31mError: listen EADDRINUSE: address already in use 0.0.0.0:3000[39m[38;5;3m +6ms[39m
+node:net:1937
+    const ex = new UVExceptionWithHostPort(err, 'listen', address, port);
+               ^
+
+Error: listen EADDRINUSE: address already in use 0.0.0.0:3000
+    at Server.setupListenHandle [as _listen2] (node:net:1937:16)
+    at listenInCluster (node:net:1994:12)
+    at node:net:2203:7
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '0.0.0.0',
+  port: 3000
+}
+
+Node.js v22.13.0

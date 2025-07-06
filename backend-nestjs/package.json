@@ -12,6 +12,7 @@
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/main",
+    "start:production": "NODE_ENV=production node dist/main",
     "seed": "ts-node src/database/seed-runner.ts",
     "seed:supabase": "ts-node src/database/supabase-seed-runner.ts",
     "db:reset": "rm -f database/meu-livro-magico.db && npm run seed",

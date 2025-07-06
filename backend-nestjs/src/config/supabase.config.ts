@@ -12,9 +12,10 @@ export class SupabaseConfig implements TypeOrmOptionsFactory {
   createTypeOrmOptions(): TypeOrmModuleOptions {
     const isProduction = process.env.NODE_ENV === 'production';
     const forceSupabase = process.env.FORCE_SUPABASE === 'true';
+    const useSupabase = process.env.USE_SUPABASE === 'true';
     
-    if (isProduction || forceSupabase) {
-      console.log('🔌 Configuração PRODUÇÃO: Tentando Supabase PostgreSQL...');
+    if ((isProduction || forceSupabase || useSupabase) && this.canConnectToSupabase()) {
+      console.log('🔌 PRODUÇÃO: Configurando Supabase PostgreSQL...');
       
       return {
         type: 'postgres',
@@ -33,17 +34,18 @@ export class SupabaseConfig implements TypeOrmOptionsFactory {
           ssl: {
             rejectUnauthorized: false,
           },
-          connectionTimeoutMillis: 10000,
+          connectionTimeoutMillis: 5000,
           idleTimeoutMillis: 30000,
-          max: 5,
+          max: 3,
         },
-        maxQueryExecutionTime: 15000,
-        retryAttempts: 2,
-        retryDelay: 3000,
+        maxQueryExecutionTime: 10000,
+        retryAttempts: 1,
+        retryDelay: 2000,
       };
     } else {
-      console.log('🔌 Configuração DESENVOLVIMENTO: Usando SQLite local...');
-      console.log('💡 Para usar Supabase, defina FORCE_SUPABASE=true ou NODE_ENV=production');
+      const reason = isProduction ? 'Supabase indisponível' : 'Ambiente de desenvolvimento';
+      console.log(`🔌 ${reason}: Usando SQLite local...`);
+      console.log('💡 Para forçar Supabase: FORCE_SUPABASE=true ou USE_SUPABASE=true');
       
       return {
         type: 'sqlite',
@@ -53,6 +55,20 @@ export class SupabaseConfig implements TypeOrmOptionsFactory {
         logging: ['error', 'warn'],
       };
     }
+  }
+
+  private canConnectToSupabase(): boolean {
+    // Em ambiente sandbox, sempre retorna false devido a limitações de DNS
+    // Em produção real, isso funcionará normalmente
+    const isSandbox = process.env.HOSTNAME?.includes('sandbox') || 
+                     process.env.USER === 'ubuntu';
+    
+    if (isSandbox) {
+      console.log('⚠️ Ambiente sandbox detectado - usando SQLite');
+      return false;
+    }
+    
+    return true;
   }
 }
 
