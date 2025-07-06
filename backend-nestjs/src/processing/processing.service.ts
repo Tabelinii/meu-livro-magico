@@ -40,10 +40,8 @@ export class ProcessingService {
       // Gerar imagem de capa
       this.logger.log('Gerando imagem de capa...');
       const coverImageUrl = await this.aiService.generateBookCover(
-        book.childName,
         book.story.title,
-        book.story.category,
-        book.story.gender
+        book.childName
       );
       
       if (coverImageUrl) {
@@ -122,11 +120,7 @@ export class ProcessingService {
         let imageUrl = null;
         if (page.imagePrompt || page.text) {
           const prompt = page.imagePrompt || page.text;
-          imageUrl = await this.aiService.generateStoryImage(
-            prompt,
-            childName,
-            storyTitle
-          );
+          imageUrl = await this.aiService.generateStoryImage(prompt);
         }
 
         pagesWithImages.push({
