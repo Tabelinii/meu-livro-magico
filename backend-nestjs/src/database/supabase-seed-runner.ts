@@ -6,9 +6,8 @@ import { Story } from '../stories/entities/story.entity';
 import { seedStories } from './seeds';
 
 async function runSupabaseSeeds() {
-  const configService = new ConfigService();
-  
-  const useSupabase = configService.get('USE_SUPABASE') === 'true';
+  // Forçar uso do Supabase
+  const useSupabase = true;
   
   let dataSource: DataSource;
   
@@ -16,11 +15,11 @@ async function runSupabaseSeeds() {
     // Configuração para Supabase PostgreSQL
     dataSource = new DataSource({
       type: 'postgres',
-      host: configService.get('SUPABASE_DB_HOST'),
-      port: parseInt(configService.get('SUPABASE_DB_PORT', '5432')),
-      username: configService.get('SUPABASE_DB_USER'),
-      password: configService.get('SUPABASE_DB_PASSWORD'),
-      database: configService.get('SUPABASE_DB_NAME'),
+      host: 'db.meuhxbicgovoozocqaez.supabase.co',
+      port: 5432,
+      username: 'postgres',
+      password: '#$Sele130905',
+      database: 'postgres',
       entities: [User, Book, Story],
       synchronize: true,
       logging: true,
@@ -30,7 +29,7 @@ async function runSupabaseSeeds() {
     // Fallback para SQLite local
     dataSource = new DataSource({
       type: 'sqlite',
-      database: configService.get('DATABASE_PATH', 'database/meu-livro-magico.db'),
+      database: 'database/meu-livro-magico.db',
       entities: [User, Book, Story],
       synchronize: true,
       logging: true,

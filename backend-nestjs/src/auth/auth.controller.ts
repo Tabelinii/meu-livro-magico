@@ -16,12 +16,16 @@ import { AuthService } from './auth.service';
 import { LoginDto } from './dto/login.dto';
 import { CreateUserDto } from '../users/dto/create-user.dto';
 import { JwtAuthGuard } from './guards/jwt-auth.guard';
+import { Public } from '../common/decorators/public.decorator';
+import { CurrentUser } from '../common/decorators/current-user.decorator';
+import { User } from '../users/entities/user.entity';
 
 @ApiTags('auth')
-@Controller('auth')
+@Controller('api/auth')
 export class AuthController {
   constructor(private readonly authService: AuthService) {}
 
+  @Public()
   @Post('login')
   @ApiOperation({ summary: 'Fazer login' })
   @ApiResponse({
@@ -52,6 +56,7 @@ export class AuthController {
     return this.authService.login(loginDto);
   }
 
+  @Public()
   @Post('register')
   @ApiOperation({ summary: 'Registrar novo usuário' })
   @ApiResponse({
@@ -83,7 +88,6 @@ export class AuthController {
   }
 
   @Get('profile')
-  @UseGuards(JwtAuthGuard)
   @ApiBearerAuth()
   @ApiOperation({ summary: 'Obter perfil do usuário autenticado' })
   @ApiResponse({
@@ -94,14 +98,36 @@ export class AuthController {
     status: 401,
     description: 'Token inválido ou expirado',
   })
-  async getProfile(@Request() req) {
+  async getProfile(@CurrentUser() user: User) {
     return {
-      id: req.user.id,
-      username: req.user.username,
-      email: req.user.email,
-      firstName: req.user.firstName,
-      lastName: req.user.lastName,
-      createdAt: req.user.createdAt,
+      id: user.id,
+      username: user.username,
+      email: user.email,
+      firstName: user.firstName,
+      lastName: user.lastName,
+      createdAt: user.createdAt,
+    };
+  }
+
+  @Get('validate')
+  @ApiBearerAuth()
+  @ApiOperation({ summary: 'Validar token de acesso' })
+  @ApiResponse({
+    status: 200,
+    description: 'Token válido',
+  })
+  @ApiResponse({
+    status: 401,
+    description: 'Token inválido ou expirado',
+  })
+  async validateToken(@CurrentUser() user: User) {
+    return {
+      valid: true,
+      user: {
+        id: user.id,
+        email: user.email,
+        username: user.username,
+      },
     };
   }
 }

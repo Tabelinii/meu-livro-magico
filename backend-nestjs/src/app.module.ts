@@ -2,6 +2,8 @@ import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ServeStaticModule } from '@nestjs/serve-static';
+import { JwtModule } from '@nestjs/jwt';
+import { APP_GUARD } from '@nestjs/core';
 import { join } from 'path';
 import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module';
@@ -12,6 +14,7 @@ import { PdfModule } from './pdf/pdf.module';
 import { ProcessingModule } from './processing/processing.module';
 import { CommonModule } from './common/common.module';
 import { SupabaseConfig } from './config/supabase.config';
+import { AuthGuard } from './common/guards/auth.guard';
 
 @Module({
   imports: [
@@ -19,6 +22,13 @@ import { SupabaseConfig } from './config/supabase.config';
     ConfigModule.forRoot({
       isGlobal: true,
       envFilePath: '.env',
+    }),
+
+    // JWT Module global
+    JwtModule.register({
+      global: true,
+      secret: process.env.JWT_SECRET || 'meu-livro-magico-super-secret-key',
+      signOptions: { expiresIn: process.env.JWT_EXPIRES_IN || '24h' },
     }),
 
     // Servir arquivos estáticos (PDFs, imagens)
@@ -43,7 +53,13 @@ import { SupabaseConfig } from './config/supabase.config';
     ProcessingModule,
   ],
   controllers: [],
-  providers: [],
+  providers: [
+    // Guard global de autenticação
+    {
+      provide: APP_GUARD,
+      useClass: AuthGuard,
+    },
+  ],
 })
 export class AppModule {}
 
