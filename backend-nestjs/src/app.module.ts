@@ -54,11 +54,11 @@ import { AuthGuard } from './common/guards/auth.guard';
   ],
   controllers: [],
   providers: [
-    // Guard global de autenticação temporariamente desabilitado
-    // {
-    //   provide: APP_GUARD,
-    //   useClass: AuthGuard,
-    // },
+    // Guard global de autenticação
+    {
+      provide: APP_GUARD,
+      useClass: AuthGuard,
+    },
   ],
 })
 export class AppModule {}
