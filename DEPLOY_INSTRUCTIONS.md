@@ -9,6 +9,7 @@ Este documento fornece instruções completas para colocar o "Meu Livro Mágico"
 ### **Frontend no Vercel**
 
 1. **Preparar o projeto:**
+
 ```bash
 cd frontend
 npm install
@@ -16,6 +17,7 @@ npm run build
 ```
 
 2. **Deploy via Vercel CLI:**
+
 ```bash
 # Instalar Vercel CLI
 npm i -g vercel
@@ -28,14 +30,16 @@ vercel --prod
 ```
 
 3. **Configurar variáveis de ambiente:**
+
 ```
 REACT_APP_API_URL=https://seu-backend.herokuapp.com
-REACT_APP_REPLICATE_API_KEY=sua_chave_replicate
+VITE_REPLICATE_API_KEY=sua_chave_replicate
 ```
 
 ### **Backend no Heroku**
 
 1. **Preparar arquivos:**
+
 ```bash
 cd backend
 echo "web: python src/main.py" > Procfile
@@ -43,6 +47,7 @@ echo "python-3.9.0" > runtime.txt
 ```
 
 2. **Deploy:**
+
 ```bash
 # Instalar Heroku CLI
 # Login
@@ -66,6 +71,7 @@ git push heroku main
 ## 🐳 **OPÇÃO 2: DOCKER (FULL STACK)**
 
 ### **Dockerfile Completo**
+
 ```dockerfile
 # Multi-stage build
 FROM node:18 AS frontend-build
@@ -101,21 +107,23 @@ CMD ["python", "src/main.py"]
 ```
 
 ### **Docker Compose**
+
 ```yaml
 version: '3.8'
 services:
-  app:
-    build: .
-    ports:
-      - "5000:5000"
-    environment:
-      - FLASK_ENV=production
-      - SECRET_KEY=sua_chave_secreta
-    volumes:
-      - ./data:/app/data
+    app:
+        build: .
+        ports:
+            - '5000:5000'
+        environment:
+            - FLASK_ENV=production
+            - SECRET_KEY=sua_chave_secreta
+        volumes:
+            - ./data:/app/data
 ```
 
 ### **Deploy com Docker**
+
 ```bash
 # Build
 docker build -t meu-livro-magico .
@@ -133,6 +141,7 @@ docker push seu-usuario/meu-livro-magico
 ### **Frontend no S3 + CloudFront**
 
 1. **Build e upload:**
+
 ```bash
 cd frontend
 npm run build
@@ -142,19 +151,22 @@ aws s3 sync dist/ s3://meu-livro-magico-frontend --delete
 ```
 
 2. **Configurar CloudFront:**
-- Origin: S3 bucket
-- Behavior: SPA (redirect 404 to index.html)
-- SSL: Certificate Manager
+
+-   Origin: S3 bucket
+-   Behavior: SPA (redirect 404 to index.html)
+-   SSL: Certificate Manager
 
 ### **Backend no Elastic Beanstalk**
 
 1. **Preparar aplicação:**
+
 ```bash
 cd backend
 zip -r meu-livro-magico-backend.zip . -x "venv/*" "__pycache__/*"
 ```
 
 2. **Deploy via EB CLI:**
+
 ```bash
 # Instalar EB CLI
 pip install awsebcli
@@ -174,12 +186,14 @@ eb deploy
 ### **Nginx + Gunicorn + Systemd**
 
 1. **Instalar dependências:**
+
 ```bash
 sudo apt update
 sudo apt install nginx python3-pip python3-venv nodejs npm
 ```
 
 2. **Configurar aplicação:**
+
 ```bash
 # Clonar projeto
 git clone seu-repositorio.git /var/www/meu-livro-magico
@@ -200,6 +214,7 @@ cp -r dist/* ../backend/src/static/
 ```
 
 3. **Configurar Gunicorn:**
+
 ```bash
 # /etc/systemd/system/meu-livro-magico.service
 [Unit]
@@ -219,6 +234,7 @@ WantedBy=multi-user.target
 ```
 
 4. **Configurar Nginx:**
+
 ```nginx
 # /etc/nginx/sites-available/meu-livro-magico
 server {
@@ -237,6 +253,7 @@ server {
 ```
 
 5. **Ativar serviços:**
+
 ```bash
 sudo systemctl enable meu-livro-magico
 sudo systemctl start meu-livro-magico
@@ -247,6 +264,7 @@ sudo systemctl restart nginx
 ## 🔒 **CONFIGURAÇÃO SSL (HTTPS)**
 
 ### **Let's Encrypt (Gratuito)**
+
 ```bash
 # Instalar Certbot
 sudo apt install certbot python3-certbot-nginx
@@ -262,6 +280,7 @@ sudo crontab -e
 ## 📊 **MONITORAMENTO EM PRODUÇÃO**
 
 ### **Logs e Métricas**
+
 ```bash
 # Logs do Gunicorn
 sudo journalctl -u meu-livro-magico -f
@@ -277,6 +296,7 @@ free -h
 ```
 
 ### **Backup Automático**
+
 ```bash
 #!/bin/bash
 # backup.sh
@@ -296,31 +316,35 @@ find $BACKUP_DIR -name "*.tar.gz" -mtime +7 -delete
 ## 🚀 **CHECKLIST DE DEPLOY**
 
 ### **Pré-Deploy:**
-- [ ] Testes passando
-- [ ] Build sem erros
-- [ ] Variáveis de ambiente configuradas
-- [ ] SSL configurado
-- [ ] Backup realizado
+
+-   [ ] Testes passando
+-   [ ] Build sem erros
+-   [ ] Variáveis de ambiente configuradas
+-   [ ] SSL configurado
+-   [ ] Backup realizado
 
 ### **Pós-Deploy:**
-- [ ] Site acessível
-- [ ] Todas as páginas funcionando
-- [ ] Upload de fotos funcionando
-- [ ] Geração de PDF funcionando
-- [ ] Logs sem erros críticos
-- [ ] Performance aceitável
+
+-   [ ] Site acessível
+-   [ ] Todas as páginas funcionando
+-   [ ] Upload de fotos funcionando
+-   [ ] Geração de PDF funcionando
+-   [ ] Logs sem erros críticos
+-   [ ] Performance aceitável
 
 ### **Monitoramento:**
-- [ ] Analytics configurado
-- [ ] Alertas de erro configurados
-- [ ] Backup automático ativo
-- [ ] Certificado SSL válido
+
+-   [ ] Analytics configurado
+-   [ ] Alertas de erro configurados
+-   [ ] Backup automático ativo
+-   [ ] Certificado SSL válido
 
 ## 🔧 **TROUBLESHOOTING**
 
 ### **Problemas Comuns:**
 
 **1. Erro 502 Bad Gateway:**
+
 ```bash
 # Verificar se Gunicorn está rodando
 sudo systemctl status meu-livro-magico
@@ -330,6 +354,7 @@ sudo journalctl -u meu-livro-magico -n 50
 ```
 
 **2. Arquivos estáticos não carregam:**
+
 ```bash
 # Verificar permissões
 sudo chown -R www-data:www-data /var/www/meu-livro-magico
@@ -337,6 +362,7 @@ sudo chmod -R 755 /var/www/meu-livro-magico
 ```
 
 **3. Upload de fotos falha:**
+
 ```bash
 # Verificar tamanho máximo
 # Nginx: client_max_body_size 10M;
@@ -346,22 +372,25 @@ sudo chmod -R 755 /var/www/meu-livro-magico
 ## 📈 **OTIMIZAÇÕES DE PRODUÇÃO**
 
 ### **Performance:**
-- Compressão Gzip no Nginx
-- Cache de arquivos estáticos
-- CDN para assets
-- Minificação de JS/CSS
+
+-   Compressão Gzip no Nginx
+-   Cache de arquivos estáticos
+-   CDN para assets
+-   Minificação de JS/CSS
 
 ### **Segurança:**
-- Firewall configurado
-- Rate limiting
-- Headers de segurança
-- Backup regular
+
+-   Firewall configurado
+-   Rate limiting
+-   Headers de segurança
+-   Backup regular
 
 ### **Escalabilidade:**
-- Load balancer
-- Múltiplos workers
-- Cache Redis
-- Database otimizado
+
+-   Load balancer
+-   Múltiplos workers
+-   Cache Redis
+-   Database otimizado
 
 ---
 
@@ -391,4 +420,3 @@ python src/main.py
 ```
 
 **Seu "Meu Livro Mágico" estará rodando em produção! 🚀**
-
